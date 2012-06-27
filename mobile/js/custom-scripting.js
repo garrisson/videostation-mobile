@@ -4,31 +4,30 @@ $(document).bind("mobileinit", function(){
 $(document).bind("mobileinit", function () {
 	$.mobile.ajaxEnabled = true;
 });
-$(function()
-{
-$('.more').live("click",function()
-{
-var ID = $(this).attr("id");
-if(ID)
-{
-$("#more"+ID).html('<img src="images/ajax-loader.gif" />');
-
-$.ajax({
-type: "POST",
-url: "load_more.php",
-data: "lastid="+ ID,
-cache: false,
-success: function(html){
-$("ul#movies").append(html).listview('refresh');
-$("#more"+ID).remove(); // removing old more button
-}
+$(document).bind("mobileinit", function(){
+	$.mobile.loadingMessage = 'Loading...';
+	$.mobile.loadingMessageTextVisible = true;
 });
-}
-else
-{
-$(".custom").html('The End');// no results
-}
 
-return false;
-});
+$(document).ready(function(){
+			
+	function lastPostFunc() 
+	{ 
+		$.mobile.showPageLoadingMsg();
+		$.post("pages/scroll.php?lastID="+$(".comment:last").attr("id"),
+		
+		function(data){
+			if (data != "") {
+			$("ul#movies").append(data).listview('refresh');			
+			}
+			$.mobile.hidePageLoadingMsg();
+		});
+	};
+		
+	$(window).scroll(function(){
+		if($(window).scrollTop() + $(window).height() >= $(document).height()){
+			lastPostFunc();
+		}
+	}); 
+			
 });

@@ -1,20 +1,12 @@
 <?php
-//error_reporting(E_ALL);
-require('../lib/config.php');
-require('../lib/lang.php');
-require('../lib/functions.php');
 connect($PASSWORD_SQL,$DATABASE);
-include('inc/header.php'); 
 ?>
-<!DOCTYPE html>
-<body> 
-
 <div data-role="page">
 
 	<header data-role="header" class="Serien" data-position="fixed">
 		<h1><?php echo series;?></h1>
 		<a href="./" data-rel="back"> Back </a>
-		<a href="./" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>	
+		<a href="./" class="ui-btn-right" data-icon="home" data-direction="reverse">Home</a>	
 	</header><!-- /header -->
 
 		<div data-role="content">
@@ -27,17 +19,13 @@ include('inc/header.php');
                         {
 							echo "
 							<li>
-								<a href=\"./list_season.php?id_serie=" . $row['id_serie'] . "&name=" . $row['serie_name'] . "\"><img src=\"images/poster_small/s-" . $row['id_serie'] . ".jpg\" />" . $row['serie_name'] . "</a>
+								<a href=\"./index.php?s=list_season&id_serie=" . $row['id_serie'] . "&name=" . $row['serie_name'] . "\"><img src=\"../images/poster_small/s-" . $row['id_serie'] . ".jpg\" />" . $row['serie_name'] . "</a>
 							</li>";
                         }
                 ?>
             </ul>
         </div>
 		<!-- /content -->
-	<div data-role="footer">
-		<h4> <?php echo $APP_NAME;?> </h4>
-	</div>
+<!--footer-->
+<?php include('pages/footer.php'); ?>
 </div><!-- /page -->
-
-</body>
-</html>

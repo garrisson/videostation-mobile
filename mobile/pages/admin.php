@@ -96,19 +96,17 @@ connect($PASSWORD_SQL,$DATABASE);
 
 ?>
 <?php //echo round((microtime(true)-$time_start),3);?>
-<!DOCTYPE html>
-<body> 
 <div data-role="page" id="config">
 <!-- HEADER -->
   <header data-role="header" class="config" data-position="fixed">
       <h1>Config</h1>
       <a href="./index.php" data-rel="back"> Back </a>
-	  <a href="./" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	  <a href="./" class="ui-btn-right" data-icon="home" data-direction="reverse">Home</a>
   </header>
 <!-- /HEADER -->
 
-<div data-role="content">
-	<!-- PARAMETRES DE BASES -->
+	<div data-role="content">
+		<!-- PARAMETRES DE BASES -->
 		<form method="POST" action="test.php?action=mod"><br>
 			<?php if(isset($message)) echo '<tr><td colspan="2" style="text-align:center;color:green;">'.$message.'</td></tr>';?>
 			<label for="version" ><?php echo version;?></label><br>
@@ -184,10 +182,8 @@ connect($PASSWORD_SQL,$DATABASE);
 
 		</form>
 
+	</div>
+
+<!--footer-->
+<?php include('pages/footer.php'); ?>
 </div>
-
-<footer>
-
-</footer>
-</body>
-</html>

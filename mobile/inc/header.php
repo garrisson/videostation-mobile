@@ -3,7 +3,7 @@
    <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+   <meta name="viewport" content="width=device-width, height=device-height minimum-scale=1, maximum-scale=1, user-scalable=0">
    <meta name="apple-mobile-web-app-capable" content="yes" />
    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 

@@ -1,8 +1,4 @@
 <?php
-//error_reporting(E_ALL);
-require('../lib/config.php');
-require('../lib/functions.php');
-require('../lib/lang.php');
 $id_episode = mysql_real_escape_string($_GET['id_episode']);
 connect($PASSWORD_SQL,$DATABASE);
 		$sql_infos = ("SELECT * FROM series WHERE id_episode='".$id_episode."'");
@@ -20,15 +16,12 @@ connect($PASSWORD_SQL,$DATABASE);
 		$link = $row['link'];
 		}
 ?>
-<!DOCTYPE html>
-<?php include('inc/header.php'); ?>
-<body> 
 <div data-role="page" id="episode_info">
 
    <header data-role="header" class="<?php echo $name . ""; ?>" data-position="fixed">
       <h1><?php echo ucwords($name); ?></h1>
       <a href="./list_episodes.php" data-rel="back"> Back </a>
-	  <a href="./" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+	  <a href="./" class="ui-btn-right" data-icon="home" data-direction="reverse">Home</a>
    </header><!-- /header -->
 
    <div data-role="content">   
@@ -55,12 +48,8 @@ connect($PASSWORD_SQL,$DATABASE);
 			</div>
 		</li>
 		</ul>
-   </div><!-- /content -->
+	</div><!-- /content -->
 
-   <div data-role="footer">
-      <h4> <?php echo $APP_NAME;?> </h4>
-   </div>
+	<!--footer-->
+	<?php include('pages/footer.php'); ?>
 </div><!-- /page -->
-
-</body>
-</html>
